@@ -23,7 +23,7 @@ abstract class HistoryDatabase: RoomDatabase() {
                         context.applicationContext,
                         HistoryDatabase::class.java,
                         "history_database"
-                    )
+                    ).fallbackToDestructiveMigration().allowMainThreadQueries()
                         .build()
 
                     INSTANCE = instance
